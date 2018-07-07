@@ -18,4 +18,18 @@ describe "User edits an existing job" do
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{job.id}")
     expect(page).to have_content("Title: #{new_title}")
   end
+  scenario "a user can't edit a job without all required fields" do
+    company = Company.create(name: "ESPN")
+    job = company.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver")
+
+    visit company_job_path(company, job)
+
+    click_link 'Edit'
+
+    new_title = ""
+    fill_in "job[title]", with: new_title
+    click_button "Update"
+
+    expect(page).to have_content("Edit here!")
+  end
 end

@@ -21,4 +21,18 @@ describe "User creates a new job" do
     expect(page).to have_content("80")
     expect(page).to have_content("Denver")
   end
+  scenario "a user can't create a new job without the required fields" do
+    company = Company.create(name: "ESPN")
+
+    visit company_jobs_path(company)
+    click_link "Add Job"
+
+    fill_in "job[description]", with: "So fun!"
+    fill_in "job[level_of_interest]", with: 80
+    fill_in "job[city]", with: "Denver"
+
+    click_button "Create"
+
+    expect(page).to have_content("Create a new job at #{company.name} here!")
+  end
 end

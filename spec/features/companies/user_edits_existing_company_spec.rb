@@ -21,4 +21,20 @@ describe "User edits an existing company" do
     expect(page).to have_content("EA Sports")
     expect(page).to_not have_content("ESPN")
   end
+  scenario "a user can't update a company without required fields" do
+    company = Company.create(name: "ESPN")
+
+    visit companies_path
+
+    within ".company_#{company.id}" do
+      click_link "Edit"
+    end
+
+    visit edit_company_path(company)
+
+    fill_in "company[name]", with: ""
+    click_button "Update"
+
+    expect(page).to have_content("Edit here!")
+  end
 end
