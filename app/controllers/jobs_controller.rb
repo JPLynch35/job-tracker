@@ -25,7 +25,7 @@ class JobsController < ApplicationController
   end
 
   def edit
-    # implement on your own!
+    # implement on your own! 
   end
 
   def update
