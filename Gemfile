@@ -38,6 +38,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :development do

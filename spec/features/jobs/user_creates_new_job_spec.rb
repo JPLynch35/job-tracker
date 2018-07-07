@@ -2,8 +2,11 @@ require 'rails_helper'
 
 describe "User creates a new job" do
   scenario "a user can create a new job" do
-    company = Company.create!(name: "ESPN")
-    visit new_company_job_path(company)
+    company = Company.create(name: "ESPN")
+
+    visit company_jobs_path(company)
+    click_link "Add Job"
+    expect(current_path).to eq("/companies/#{company.id}/jobs/new")
 
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
