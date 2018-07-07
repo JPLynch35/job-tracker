@@ -11,3 +11,4 @@ describe "User sees all companies" do
   end
 
 end
+ 
