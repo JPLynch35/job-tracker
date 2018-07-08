@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   resources :companies do
-    resources :jobs
+    resources :jobs, only: [:index, :show]
   end
 
+  resources :jobs
   resources :categories
 
   # get "/jobs", to: 'jobs#index'
