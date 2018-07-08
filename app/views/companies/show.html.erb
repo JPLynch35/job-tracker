@@ -4,5 +4,11 @@
   <p><%= link_to "Jobs", company_jobs_path(@company) %></p>
 </head>
 <body>
-
+  <%= render partial: "contact_form" %>
+  <h4>Existing Contacts</h4>
+  <ul>
+    <% @contacts.each do |contact| %>
+    <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
+    <% end %>
+  </ul>
 </body>
