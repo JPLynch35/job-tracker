@@ -1,38 +1,48 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/categories/user_creates_new_category_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/categories/user_creates_new_category_spec.rb": [
         1,
         null,
         1,
         1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
+        3,
         null,
         1,
         1,
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
         1,
         1,
         1,
         null,
         1,
         null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
         1,
         null,
         1,
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/rails_helper.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/rails_helper.rb": [
         null,
         1,
         1,
@@ -91,14 +101,14 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/environment.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/environment.rb": [
         null,
         1,
         null,
         null,
         1
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/application.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/application.rb": [
         1,
         null,
         1,
@@ -118,12 +128,12 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/boot.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/boot.rb": [
         1,
         null,
         1
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/environments/test.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/environments/test.rb": [
         1,
         null,
         null,
@@ -167,7 +177,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/assets.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/assets.rb": [
         null,
         null,
         null,
@@ -180,7 +190,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/backtrace_silencers.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/backtrace_silencers.rb": [
         null,
         null,
         null,
@@ -189,18 +199,18 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/cookies_serializer.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/cookies_serializer.rb": [
         null,
         null,
         1
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/filter_parameter_logging.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/filter_parameter_logging.rb": [
         null,
         null,
         null,
         1
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/inflections.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/inflections.rb": [
         null,
         null,
         null,
@@ -218,18 +228,18 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/mime_types.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/mime_types.rb": [
         null,
         null,
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/session_store.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/session_store.rb": [
         null,
         null,
         1
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/initializers/wrap_parameters.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/initializers/wrap_parameters.rb": [
         null,
         null,
         null,
@@ -245,7 +255,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/config/routes.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/config/routes.rb": [
         1,
         null,
         1,
@@ -313,11 +323,58 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/helpers/application_helper.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/companies/user_creates_new_company_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/categories/user_edits_category_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        0,
+        null,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null
+      ],
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/categories/user_sees_all_categories_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/companies/user_creates_new_company_spec.rb": [
         1,
         null,
         1,
@@ -351,7 +408,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/companies/user_deletes_a_company_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/companies/user_deletes_a_company_spec.rb": [
         1,
         null,
         1,
@@ -371,7 +428,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/companies/user_edits_existing_company_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/companies/user_edits_existing_company_spec.rb": [
         1,
         null,
         1,
@@ -412,7 +469,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/companies/user_sees_all_companies_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/companies/user_sees_all_companies_spec.rb": [
         1,
         null,
         1,
@@ -429,7 +486,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/companies/user_sees_one_company_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/companies/user_sees_one_company_spec.rb": [
         1,
         null,
         1,
@@ -448,7 +505,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/jobs/user_creates_new_job_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/jobs/user_creates_new_job_spec.rb": [
         1,
         null,
         1,
@@ -509,7 +566,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/jobs/user_deletes_a_job_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/jobs/user_deletes_a_job_spec.rb": [
         1,
         null,
         1,
@@ -541,7 +598,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/jobs/user_edits_existing_job_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/jobs/user_edits_existing_job_spec.rb": [
         1,
         null,
         1,
@@ -594,7 +651,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/jobs/user_sees_a_job_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/jobs/user_sees_a_job_spec.rb": [
         1,
         null,
         1,
@@ -627,7 +684,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/features/jobs/user_sees_all_jobs_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/features/jobs/user_sees_all_jobs_spec.rb": [
         1,
         null,
         1,
@@ -655,52 +712,7 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/models/category_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/models/category.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/models/application_record.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/models/company_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/models/category_spec.rb": [
         1,
         null,
         1,
@@ -734,14 +746,59 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/models/company.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/models/category.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/models/company_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/models/company.rb": [
         1,
         1,
         1,
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/spec/models/job_spec.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/spec/models/job_spec.rb": [
         1,
         null,
         1,
@@ -797,14 +854,14 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/models/job.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/models/job.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/controllers/companies_controller.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/controllers/companies_controller.rb": [
         1,
         1,
         7,
@@ -860,14 +917,14 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/controllers/application_controller.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/controllers/jobs_controller.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/controllers/jobs_controller.rb": [
         1,
         1,
         10,
@@ -947,24 +1004,28 @@
         null,
         null
       ],
-      "/Users/jp/turing/2module/projects/job-tracker/app/controllers/categories_controller.rb": [
+      "/Users/JiveTurkey/turing/2module/projects/job-tracker/app/controllers/categories_controller.rb": [
         1,
         1,
+        5,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        3,
+        3,
+        1,
+        1,
+        null,
         2,
         null,
         null,
-        1,
-        2,
-        null,
         null,
         1,
-        2,
-        2,
         1,
-        1,
-        null,
-        1,
-        null,
         null,
         null,
         1,
@@ -972,13 +1033,24 @@
         null,
         null,
         1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
         null,
         1,
-        2,
+        null,
+        1,
+        3,
         null,
         null
       ]
     },
-    "timestamp": 1531072272
+    "timestamp": 1531074188
   }
 }
