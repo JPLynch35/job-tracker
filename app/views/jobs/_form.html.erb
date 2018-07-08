@@ -14,7 +14,7 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
-  <%= f.label :category_id %>
+  <p><%= f.label :category_id %> <%= link_to "Add New Category", new_category_path %></p>
   <%= f.collection_select :category_id, Category.order(:title),:id,:title, include_blank: true %>
 
   <%= f.submit %>

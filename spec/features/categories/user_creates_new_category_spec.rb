@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "User creates a new category" do
-  begin :each do
+  before :each do
     @category = Category.create(title: "Finance")
   end
   scenario "a user can create a new category" do

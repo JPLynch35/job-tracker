@@ -56,4 +56,10 @@ describe "User creates a new job" do
 
     expect(page).to have_content("Create a new #{@company.name} job here!")
   end
+  scenario "a user is directed to /categories/new from /jobs/new" do
+    visit new_job_path
+    click_link "Add New Category"
+
+    expect(current_path).to eq("/categories/new")
+  end
 end
