@@ -51,4 +51,47 @@ describe Job do
       expect(job).to respond_to(:company)
     end
   end
+
+  describe "class methods" do
+    it "self.job_interests can calculate the number of jobs for each interest level" do
+      @category = Category.create(title: 'Finance')
+      @company_1 = Company.create(name: "ESPN")
+      @job_1 = @company_1.jobs.create(title: "Developer", level_of_interest: 2, city: "Denver", category_id: @category.id)
+      @job_2 = @company_1.jobs.create(title: "QA Analyst", level_of_interest: 2, city: "New York City", category_id: @category.id)
+      @job_3 = @company_1.jobs.create(title: "Manager1", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_4 = @company_1.jobs.create(title: "Manager2", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_5 = @company_1.jobs.create(title: "Manager3", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_6 = @company_1.jobs.create(title: "Manager4", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_7 = @company_1.jobs.create(title: "Manager5", level_of_interest: 5, city: "Denver", category_id: @category.id)
+      @job_8 = @company_1.jobs.create(title: "Manager6", level_of_interest: 5, city: "Denver", category_id: @category.id)
+      @job_9 = @company_1.jobs.create(title: "Manager7", level_of_interest: 5, city: "Denver", category_id: @category.id)
+
+      expected = {
+        5 => 3,
+        4 => 4,
+        2 => 2
+      }
+
+      expect(Job.job_interests).to eq(expected)
+    end
+    it "self.top_companies_by_interest can calculate the average level of interest for top 3 companies" do
+      @category = Category.create(title: 'Finance')
+      @company_1 = Company.create(name: "ESPN")
+      @job_1 = @company_1.jobs.create(title: "Developer", level_of_interest: 2, city: "Denver", category_id: @category.id)
+      @job_2 = @company_1.jobs.create(title: "QA Analyst", level_of_interest: 2, city: "New York City", category_id: @category.id)
+      @job_3 = @company_1.jobs.create(title: "Manager1", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_4 = @company_1.jobs.create(title: "Manager2", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_5 = @company_1.jobs.create(title: "Manager3", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_6 = @company_1.jobs.create(title: "Manager4", level_of_interest: 4, city: "Denver", category_id: @category.id)
+      @job_7 = @company_1.jobs.create(title: "Manager5", level_of_interest: 5, city: "Denver", category_id: @category.id)
+      @job_8 = @company_1.jobs.create(title: "Manager6", level_of_interest: 5, city: "Denver", category_id: @category.id)
+      @job_9 = @company_1.jobs.create(title: "Manager7", level_of_interest: 5, city: "Denver", category_id: @category.id)
+
+      array = Job.top_companies_by_interest
+
+      expect(array.first.name).to eq('IBM')
+      expect(array[1].name).to eq('Apple')
+      expect(array.last.name).to eq('ESPN')
+    end
+  end
 end

@@ -1,0 +1,8 @@
+<h1>Job Tracker</h1>
+
+<h3>Jobs by Interest</h3>
+<% @job_interests.each do |key, value| %>
+  <p><%= '*'*key %>(<%= value %> jobs)</p>
+<% end %>
+
+<h3>Top Companies by Interest</h3>
