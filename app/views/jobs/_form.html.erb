@@ -14,5 +14,8 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
+  <%= f.label :category_id %>
+  <%= f.collection_select :category_id, Category.order(:title),:id,:title, include_blank: true %>
+
   <%= f.submit %>
 <% end %>
