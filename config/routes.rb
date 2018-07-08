@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
+  resources :jobs
   resources :categories
 
   # get "/jobs", to: 'jobs#index'
