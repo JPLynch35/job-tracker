@@ -5,9 +5,9 @@ class JobsController < ApplicationController
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
     elsif params[:sort]
-      @jobs = Job.order(sort_params[params[:sort]])
+      @jobs = Job.order(sort_params[params[:sort]]).includes(:company)
     else
-      @jobs = Job.all
+      @jobs = Job.all.includes(:company)
     end
   end
 
