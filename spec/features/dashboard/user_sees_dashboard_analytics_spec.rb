@@ -26,7 +26,7 @@ describe 'a user visits /dashboard' do
   scenario 'should see top companies level of interest along with average interest per company' do
     visit dashboard_index_path
 
-    expect(page).to have_content("IBM (4.7 stars)")
+    expect(page).to have_content("IBM (4.8 stars)")
     expect(page).to have_content("Apple (3.3 stars)")
     expect(page).to have_content("ESPN (3.0 stars)")
   end
