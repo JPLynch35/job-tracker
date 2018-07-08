@@ -20,6 +20,6 @@ describe "A User" do
     click_button "Update"
 
     expect(current_path).to eq("/categories/#{@category_3.id}")
-    expect(page).to have_content(Category.find(@category_3.id))
+    expect(page).to have_content(Category.find(@category_3.id).title)
   end
 end
