@@ -23,5 +23,18 @@ describe 'a visitor' do
       expect(current_path).to eq(job_path(@job))
       expect(page).to have_content("I made a comment right on the page!")
     end
+    it 'should show the newest comments on top' do
+      @category = Category.create(title: 'Finance')
+      @company = Company.create(name: "ESPN")
+      @job = @company.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver", category_id: @category.id)
+
+      visit job_path(@job)
+      fill_in "comment[content]", with: "This is the first comment"
+      click_button "Create Comment"
+      fill_in "comment[content]", with: "This is the second comment"
+      click_button "Create Comment"
+      
+      expect("This is the second comment").to appear_before("This is the first comment")
+    end
   end
 end
