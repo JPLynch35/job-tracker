@@ -1,11 +1,11 @@
 class JobsController < ApplicationController
   def index
+    sort_params = {'location' => :city, 'interest' => :level_of_interest}
     if params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
-    elsif params[:sort] == 'location'
-      @flag = true
-      @jobs = Job.order(:city)
+    elsif params[:sort]
+      @jobs = Job.order(sort_params[params[:sort]])
     else
       @jobs = Job.all
     end
