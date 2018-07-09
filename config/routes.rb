@@ -4,9 +4,11 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
-  resources :jobs
-
+  resources :jobs do
+    resources :comments
+  end
   resources :categories
+  resources :dashboard, only: [:index]
 
   # get "/jobs", to: 'jobs#index'
 
