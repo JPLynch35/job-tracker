@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   end
 
   resources :jobs
-
   resources :categories
+  resources :dashboard, only: [:index]
 
   # get "/jobs", to: 'jobs#index'
 
