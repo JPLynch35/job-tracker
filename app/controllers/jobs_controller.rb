@@ -41,6 +41,8 @@ class JobsController < ApplicationController
   def show
     @flag = true if params[:company_id]
     @job = Job.find(params[:id])
+    @comment = Comment.new
+    @comment.job_id = @job.id
   end
 
   def edit
