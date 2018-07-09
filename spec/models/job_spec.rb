@@ -50,6 +50,7 @@ describe Job do
       job = company.jobs.create(title: "Developer", level_of_interest: 40, city: "Denver", category_id: category.id)
       expect(job).to respond_to(:company)
     end
+    it { should have_many(:comments)}
   end
 
   describe "class methods" do
