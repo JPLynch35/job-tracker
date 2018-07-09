@@ -14,13 +14,16 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
+
       <div class="timestamp">Generated <abbr class="timeago" title="2018-07-08T21:46:46-06:00">2018-07-08T21:46:46-06:00</abbr></div>
+
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
+
     (<span class="covered_percent"><span class="green">99.86%</span></span>
      covered at
      <span class="covered_strength">
@@ -84,10 +87,10 @@
         <td class="strong"><a href="#6f005cdec31f8b263a45cffdf5b31a7584e998ef" class="src_link" title="app/controllers/companies_controller.rb">app/controllers/companies_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>54</td>
-        <td>30</td>
-        <td>30</td>
+        <td>31</td>
+        <td>31</td>
         <td>0</td>
-        <td>1.7</td>
+        <td>1.8</td>
       </tr>
       
       <tr>
@@ -143,6 +146,7 @@
       <tr>
         <td class="strong"><a href="#5b12585704859586749d106361c1b84878bd4d4f" class="src_link" title="app/models/comment.rb">app/models/comment.rb</a></td>
         <td class="green strong">100.0 %</td>
+
         <td>4</td>
         <td>3</td>
         <td>3</td>
@@ -393,11 +397,11 @@
       <tr>
         <td class="strong"><a href="#773295b8da4815604dea58cc7d8f242c6fd74595" class="src_link" title="spec/features/companies/user_sees_one_company_spec.rb">spec/features/companies/user_sees_one_company_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>17</td>
-        <td>12</td>
-        <td>12</td>
+        <td>33</td>
+        <td>23</td>
+        <td>23</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.5</td>
       </tr>
       
       <tr>
@@ -501,6 +505,7 @@
       </tr>
       
       <tr>
+
         <td class="strong"><a href="#13026507fbb460f99217259280cc22d12dcfca72" class="src_link" title="spec/models/job_spec.rb">spec/models/job_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>100</td>
@@ -982,8 +987,8 @@
     <h3>app/controllers/companies_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>30</b> relevant lines. 
-      <span class="green"><b>30</b> lines covered</span> and
+      <b>31</b> relevant lines. 
+      <span class="green"><b>31</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1111,16 +1116,16 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="21">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="21">
+          <span class="hits">5</span>
           
           <code class="ruby">    @company = Company.find(params[:id])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="covered" data-hits="5" data-linenumber="22">
+          <span class="hits">5</span>
           
-          
-          <code class="ruby">    # redirect_to company_jobs_path(company)</code>
+          <code class="ruby">    @contacts = @company.contacts</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
@@ -1440,7 +1445,7 @@
         <li class="covered" data-hits="2" data-linenumber="8">
           <span class="hits">2</span>
           
-          <code class="ruby">      @jobs = Job.order(sort_params[params[:sort]])</code>
+          <code class="ruby">      @jobs = Job.order(sort_params[params[:sort]]).includes(:company)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -1452,7 +1457,7 @@
         <li class="covered" data-hits="4" data-linenumber="10">
           <span class="hits">4</span>
           
-          <code class="ruby">      @jobs = Job.all</code>
+          <code class="ruby">      @jobs = Job.all.includes(:company)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
@@ -2014,8 +2019,8 @@
     <h3>app/models/comment.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -2084,7 +2089,13 @@
           <code class="ruby">  has_many :jobs, dependent: :destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  has_many :contacts, dependent: :destroy</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
           
           
           <code class="ruby"></code>
@@ -5327,8 +5338,8 @@
     <h3>spec/features/companies/user_sees_one_company_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>12</b> lines covered</span> and
+      <b>23</b> relevant lines. 
+      <span class="green"><b>23</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -5360,79 +5371,175 @@
           <code class="ruby">  before :each do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="5">
+          <span class="hits">3</span>
           
           <code class="ruby">    @category = Category.create(title: &#39;Finance&#39;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="6">
+          <span class="hits">3</span>
           
           <code class="ruby">    @company_1 = Company.create(name: &quot;ESPN&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="7">
+          <span class="hits">3</span>
           
           <code class="ruby">    @company_2 = Company.create(name: &quot;Disney&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="8">
+          <span class="hits">3</span>
           
           <code class="ruby">    @company_1.jobs.create(title: &quot;Developer&quot;, level_of_interest: 90, city: &quot;Denver&quot;, category_id: @category.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="covered" data-hits="3" data-linenumber="9">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @contact_1 = @company_1.contacts.create(name: &quot;Chris Camp&quot;, role: &quot;Manager&quot;, email: &quot;chris@espn.com&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="10">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @contact_2 = @company_1.contacts.create(name: &quot;Allen Bootleg&quot;, role: &quot;Minion&quot;, email: &quot;allen@espn.com&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
           <code class="ruby">  scenario &quot;a user sees a company&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
-          <code class="ruby">    visit company_jobs_path(@company_1)</code>
+          <code class="ruby">    visit company_path(@company_2)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    expect(current_path).to eq(&quot;/companies/#{@company_1.id}/jobs&quot;)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    expect(page).to have_content(&quot;ESPN&quot;)</code>
-        </li>
-      
         <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
-          <code class="ruby">    expect(page).to have_content(&quot;Developer&quot;)</code>
+          <code class="ruby">    expect(current_path).to eq(&quot;/companies/#{@company_2.id}&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_content(&quot;Disney&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  scenario &quot;a user sees a company&#39;s jobs&quot; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    visit company_jobs_path(@company_1)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(current_path).to eq(&quot;/companies/#{@company_1.id}/jobs&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_content(&quot;ESPN&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_content(&quot;Developer&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  scenario &quot;a user sees company&#39;s contacts&quot; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    visit company_path(@company_1)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="28">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(current_path).to eq(&quot;/companies/#{@company_1.id}&quot;)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_content(@contact_1.name)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="31">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    expect(page).to have_content(@contact_2.email)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">end</code>

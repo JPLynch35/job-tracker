@@ -5,17 +5,20 @@ class JobsController < ApplicationController
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
     elsif params[:sort]
-      @jobs = Job.order(sort_params[params[:sort]])
+      @jobs = Job.order(sort_params[params[:sort]]).includes(:company)
     else
-      @jobs = Job.all
+      @jobs = Job.all.includes(:company)
     end
   end
 
   def new
     if params[:company_id]
+      # @heading = "All of this company's jobs"
       @company = Company.find(params[:company_id])
       @job = @company.jobs.new
+      # Job.where(company_id:params[:company_id])
     else
+      # @heading = "All jobs"
       @job = Job.new
     end
   end
@@ -28,7 +31,7 @@ class JobsController < ApplicationController
       if params[:company_id]
         redirect_to company_job_path(@company, @job)
       else
-        redirect_to job_path(@job)
+        redirect_to job_path(@job) # use render?
       end
     else
       render :new

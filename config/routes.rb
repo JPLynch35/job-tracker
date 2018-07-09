@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :dashboard, only: [:index]
 
+  resources :contacts
   # get "/jobs", to: 'jobs#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
