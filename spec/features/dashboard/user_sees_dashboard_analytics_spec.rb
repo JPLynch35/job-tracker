@@ -13,8 +13,8 @@ describe 'a user visits /dashboard' do
     @job_5 = @company_3.jobs.create(title: "Manager3", level_of_interest: 4, city: "Denver", category_id: @category.id)
     @job_6 = @company_2.jobs.create(title: "Manager4", level_of_interest: 4, city: "Denver", category_id: @category.id)
     @job_7 = @company_3.jobs.create(title: "Manager5", level_of_interest: 5, city: "Denver", category_id: @category.id)
-    @job_8 = @company_3.jobs.create(title: "Manager6", level_of_interest: 5, city: "Denver", category_id: @category.id)
-    @job_9 = @company_3.jobs.create(title: "Manager7", level_of_interest: 5, city: "Denver", category_id: @category.id)
+    @job_8 = @company_3.jobs.create(title: "Manager6", level_of_interest: 5, city: "Orlando", category_id: @category.id)
+    @job_9 = @company_3.jobs.create(title: "Manager7", level_of_interest: 5, city: "Orlando", category_id: @category.id)
   end
   scenario 'should see a job counts grouped by level of interest' do
     visit dashboard_index_path
@@ -29,5 +29,12 @@ describe 'a user visits /dashboard' do
     expect(page).to have_content("IBM (4.8 stars)")
     expect(page).to have_content("Apple (3.3 stars)")
     expect(page).to have_content("ESPN (3.0 stars)")
+  end
+  scenario "should see each city with jobs and a link to the city's job page" do
+    visit dashboard_index_path
+
+    expect(page).to have_content("Denver jobs (6)")
+    expect(page).to have_content("New York City jobs (1)")
+    expect(page).to have_content("Orlando jobs (2)")
   end
 end
