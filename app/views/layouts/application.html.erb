@@ -5,8 +5,22 @@
   <%= stylesheet_link_tag    'application', :media => 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Chela+One' rel='application'>
 </head>
 <body>
+  <nav class='nav'>
+    <div class="dashboard">
+      <a id='job-tracker' <%= link_to "Dashboard", dashboard_index_path %></a>
+    </div>
+    <ul class='nav-links'>
+    <div id='right-nav-links'>
+      <li class='nav-link'><a <%= link_to "Companies", companies_path %></a></li>
+      <li class='nav-link'><a <%= link_to "Jobs", jobs_path %></a></li>
+      <li class='nav-link'><a <%= link_to "Categories", categories_path %></a></li>
+    </div>
+    </ul>
+  </nav>
+
   <% flash.each do |name, msg| %>
     <div class='centered'>
       <%= content_tag :div, msg, class: name %>
@@ -15,5 +29,5 @@
 <%= yield %>
 
 </body>
+<footer></footer>
 </html>
- 
