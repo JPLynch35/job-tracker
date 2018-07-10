@@ -33,8 +33,7 @@ class JobsController < ApplicationController
   end
 
   def create
-    @company = Company.find(job_params[:company_id])
-    @job = @company.jobs.new(job_params)
+    @job = Job.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       if params[:company_id]
