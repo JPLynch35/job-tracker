@@ -5,7 +5,7 @@
 <body>
   <div class='centered'>
     <header>
-      <h2><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h2>
+      <h2><strong><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></strong></h2>
     </header>
     <% if !!@flag %>
         <%= link_to 'Edit', edit_company_job_path(@job.company, @job), :class => 'button' %>
@@ -14,8 +14,7 @@
         <%= link_to 'Edit', edit_job_path(@job), :class => 'button' %>
         <%= link_to 'Delete', job_path(@job), method: 'delete', :class => 'button' %>
     <% end %>
-    <p class='font'>See Other <%= link_to @job.title, companies_path %> Positions</p>
-    <br>
+    <p class='font'><%= link_to "See Other #{@job.title} Positions", companies_path %></p>
     <br>
     <br>
     <div class='job-info'>

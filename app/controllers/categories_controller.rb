@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.all.includes(:jobs)
   end
 
   def new
@@ -15,10 +15,6 @@ class CategoriesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    @category = Category.find(params[:id])
   end
 
   def edit

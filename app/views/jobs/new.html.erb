@@ -6,9 +6,9 @@
   <div class='centered'>
     <header>
       <% if @company %>
-        <h2>Create a new <%= @company.name %> job here!</h2>
+        <h2><strong>Create a new <%= @company.name %> job here!</strong></h2>
       <% else %>
-        <h2>Create a new job here!</h2>
+        <h2><strong>Create a new job here!</strong></h2>
       <% end %>
     </header>
     <%= render partial: "form" %>

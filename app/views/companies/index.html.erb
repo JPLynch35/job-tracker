@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <head>
-<h2>All Companies</h2>
+  <%= stylesheet_link_tag "main" %>
 </head>
 <body>
-  <p><%= link_to "Add Company", new_company_path %></p>
-  <ul>
+  <header>
+    <h2><strong>All Companies</strong></h2>
+  </header>
+  <p><%= link_to "Add Company", new_company_path, :class => 'button' %></p>
     <% @companies.each do |company| %>
-    <li class=company_<%= company.id %>>
-      <%= link_to company.name, company_path(company) %>:
-      <%= link_to "Edit", edit_company_path(company) %>
-      <%= link_to "Delete", company_path(company), method: "delete" %>
-    </li>
+    <ul class="font ul-pad company_<%= company.id %>"">
+      <%= link_to "Edit", edit_company_path(company), :class => 'button' %>
+      <%= link_to "Delete", company_path(company), method: "delete", :class => 'button' %>
+      <%= link_to company.name, company_path(company) %>
+    </ul>
     <% end %>
-  </ul>
 </body>
