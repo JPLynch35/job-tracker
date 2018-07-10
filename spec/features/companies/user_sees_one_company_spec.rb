@@ -29,13 +29,39 @@ describe "User sees one company" do
     expect(page).to have_content(@contact_1.name)
     expect(page).to have_content(@contact_2.email)
   end
-  scenario "a user sees company's contacts" do
+  scenario "a fills in contact form and sees contacts" do
     visit company_path(@company_1)
+
+    contact_name = "Bart Simpson"
+    contact_role = "Cartoon"
+    contact_email = "bart@simpson.com"
+
+    fill_in :contact_name, with: contact_name
+    fill_in :contact_role, with: contact_role
+    fill_in :contact_email, with: contact_email
 
     click_on "Create Contact"
 
-    # expect(current_path).to eq("/companies/#{@company_1.id}")
-    # expect(page).to have_content(@contact_1.name)
-    # expect(page).to have_content(@contact_2.email)
+    expect(current_path).to eq(company_path(@company_1))
+    expect(page).to have_content(contact_name)
+    expect(page).to have_content(contact_role)
+    expect(page).to have_content(contact_email)
+  end
+  scenario "a fills in incomplete contact form and doesn't see contact" do
+    visit company_path(@company_1)
+
+    contact_name = nil
+    contact_role = "Cartoon"
+    contact_email = "bart@simpson.com"
+
+    fill_in :contact_name, with: contact_name
+    fill_in :contact_role, with: contact_role
+    fill_in :contact_email, with: contact_email
+
+    click_on "Create Contact"
+
+    expect(current_path).to eq(company_path(@company_1))
+    expect(page).to_not have_content(contact_role)
+    expect(page).to_not have_content(contact_email)
   end
 end
