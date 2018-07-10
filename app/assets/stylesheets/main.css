@@ -1,0 +1,44 @@
+body {
+  background-color: bisque;
+}
+
+header {
+  font-family: Franklin Gothic Medium, 'Arial Bold', sans-serif;
+}
+
+.font {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.centered {
+  text-align: center;
+}
+
+.inline-objects {
+  display: inline-block;
+}
+
+.job-info {
+  font-size: 25;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.button {
+  display: inline;
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  padding: 5px;
+}
+
+.job-form {
+  display: block;
+  font-family: 'Courier New', Courier, monospace;
+}
