@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <head>
-  <h2>Job Categories</h2>
+  <%= stylesheet_link_tag "main" %>
 </head>
 <body>
-  <p><%= link_to "Add New Category", new_category_path %></p>
-  <ul>
-    <% @categories.each do |category| %>
-    <li class=category_<%= category.id %>>
-      <%= link_to category.title, category_path(category) %>:
-      <%= link_to "Edit", edit_category_path(category) %>
-      <%= link_to "Delete", category_path(category), method: "delete" %>
-    </li>
-    <% end %>
-  </ul>
+  <header>
+    <h2><strong>Job Categories</strong></h2>
+  </header>
+  <p><%= link_to "Add Category", new_category_path, :class => 'button' %></p>
+  <% @categories.each do |category| %>
+    <ul class="font ul-pad category_<%= category.id %>">
+      <%= link_to "Edit", edit_category_path(category), :class => 'button' %>
+      <%= link_to "Delete", category_path(category), method: "delete", :class => 'button' %>
+      <%= category.title %> - 
+      <%= link_to "#{category.jobs.count} jobs", "/jobs/?category=#{category.title}"%>
+    </ul>
+  <% end %>
 </body>

@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <head>
-  <h2>Edit <%= @category.title %> here!</h2>
+  <%= stylesheet_link_tag "main" %>
 </head>
 <body>
-  <%= render partial: "form" %>
+  <div class='centered'>
+    <header>
+      <h2><strong>Edit <%= @category.title %> here!</strong></h2>
+    </header>
+    <%= render partial: "form" %>
+  </div>
  </body>

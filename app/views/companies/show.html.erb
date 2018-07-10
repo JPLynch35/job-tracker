@@ -9,12 +9,12 @@
     </header>
     <%= link_to 'Edit', edit_company_path(@company), :class => 'button' %>
     <%= link_to 'Delete', company_path(@company), method: 'delete', :class => 'button' %>
-      <p class='font'><%= link_to "See Other Jobs at #{@company.name}", company_jobs_path(@company) %></p>
+    <p class='font'><%= link_to "See Other Jobs at #{@company.name}", company_jobs_path(@company) %></p>
     <br>
     <br>
     <br>
-    <%= render partial: "contacts/form" %>
-    <h4>Existing Contacts</h4>
+    <%= render partial: "contacts/form" %><br><br>
+    <h4 class='font'>Existing Contacts</h4>
     <ul>
       <% @contacts.each do |contact| %>
         <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
