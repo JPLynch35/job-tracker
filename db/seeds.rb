@@ -4,9 +4,9 @@ Job.destroy_all
 COMPANIES = ["ESPN", "Aetna", "United Airlines", "Denver Public Schools", "Shopify", "Starbucks", "Pivotal Labs", "Captain U"]
 JOBS = ["Engineering", "Development", "Dev Ops", "Quality Assurance", "Teacher", "Product Manager", "Consultant", "Community Manager"]
 CITIES = ["Seattle", "Denver", "Portland", "Indianapolis", "Madison", "Orlando", "San Diego", "Austin", "Las Vegas", "Little Rock", "Boise", "Eugene", "Oakland"]
-
+CATEGORIES = ["Finance", "Development", "Teacher", "Consultant"]
 COMPANIES.each do |name|
-  category = Category.create(title: "Finance")
+  category = Category.create(title: CATEGORIES.sample)
   company = Company.create(name: name)
   puts "Created #{company.name}"
   10.times do |num|
