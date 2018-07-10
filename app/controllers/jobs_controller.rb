@@ -1,11 +1,20 @@
 class JobsController < ApplicationController
   def index
-    sort_params = {'location' => :city, 'interest' => :level_of_interest}
+    @heading = "All Jobs"
+    sort_params = {'location' => :city, 'interest' => :level_of_interest, 'title' => :title}
     if params[:company_id]
       @company = Company.find(params[:company_id])
+      @heading += " at #{@company.name}"
       @jobs = @company.jobs
     elsif params[:sort]
       @jobs = Job.order(sort_params[params[:sort]]).includes(:company)
+    elsif params[:location]
+      @heading = "#{params[:location]} Jobs"
+      @jobs = Job.where(city: params[:location])
+    elsif params[:category]
+      @heading = "#{params[:category]} Jobs"
+      category = Category.find_by(title: params[:category])
+      @jobs = Job.where(category_id: category.id)
     else
       @jobs = Job.all.includes(:company)
     end
