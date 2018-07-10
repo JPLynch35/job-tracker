@@ -13,6 +13,7 @@ class CategoriesController < ApplicationController
       flash[:success] = "#{@category.title} added!"
       redirect_to categories_path
     else
+      flash.notice = "Category not created."
       render :new
     end
   end
@@ -28,6 +29,7 @@ class CategoriesController < ApplicationController
       flash[:success] = "#{@category.title} updated!"
       redirect_to "/jobs?category=#{@category.title}"
     else
+      flash.notice = "Category not updated."
       render :edit
     end
   end

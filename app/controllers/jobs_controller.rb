@@ -43,6 +43,7 @@ class JobsController < ApplicationController
         redirect_to job_path(@job) # use render?
       end
     else
+      flash.notice = "Job not created."
       render :new
     end
   end
@@ -71,6 +72,7 @@ class JobsController < ApplicationController
         redirect_to job_path(@job)
       end
     else
+      flash.notice = "Job not updated."
       render :edit
     end
   end
