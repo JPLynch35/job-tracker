@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     @comment.job_id = params[:job_id]
 
     @comment.save
-
     redirect_to job_path(params[:job_id])
   end
 

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <head>
-  <h2><strong><%= @company.name %></strong></h2>
-  <p><%= link_to "Jobs", company_jobs_path(@company) %></p>
+  <%= stylesheet_link_tag "main" %>
 </head>
 <body>
-  <%= render partial: "contact_form" %>
-  <h4>Existing Contacts</h4>
-  <ul>
-    <% @contacts.each do |contact| %>
-    <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
-    <% end %>
-  </ul>
+  <div class='centered'>
+    <header>
+      <h2><strong><%= @company.name %></strong></h2>
+    </header>
+    <%= link_to 'Edit', edit_company_path(@company), :class => 'button' %>
+    <%= link_to 'Delete', company_path(@company), method: 'delete', :class => 'button' %>
+      <p class='font'><%= link_to "See Other Jobs at #{@company.name}", company_jobs_path(@company) %></p>
+    <br>
+    <br>
+    <br>
+    <%= render partial: "contact_form" %>
+    <h4>Existing Contacts</h4>
+    <ul>
+      <% @contacts.each do |contact| %>
+      <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
+      <% end %>
+    </ul>
+  </div>
 </body>
