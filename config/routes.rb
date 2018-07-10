@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
-  resources :categories
+  resources :categories, except: [:show]
   resources :contacts, only: [:create]
   resources :dashboard, only: [:index]
 
