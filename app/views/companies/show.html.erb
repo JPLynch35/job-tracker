@@ -13,11 +13,11 @@
     <br>
     <br>
     <br>
-    <%= render partial: "contact_form" %>
+    <%= render partial: "contacts/form" %>
     <h4>Existing Contacts</h4>
     <ul>
       <% @contacts.each do |contact| %>
-      <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
+        <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
       <% end %>
     </ul>
   </div>

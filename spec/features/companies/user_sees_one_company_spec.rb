@@ -23,11 +23,19 @@ describe "User sees one company" do
     expect(page).to have_content("Developer")
   end
   scenario "a user sees company's contacts" do
-
     visit company_path(@company_1)
 
     expect(current_path).to eq("/companies/#{@company_1.id}")
     expect(page).to have_content(@contact_1.name)
     expect(page).to have_content(@contact_2.email)
+  end
+  scenario "a user sees company's contacts" do
+    visit company_path(@company_1)
+
+    click_on "Create Contact"
+
+    # expect(current_path).to eq("/companies/#{@company_1.id}")
+    # expect(page).to have_content(@contact_1.name)
+    # expect(page).to have_content(@contact_2.email)
   end
 end
