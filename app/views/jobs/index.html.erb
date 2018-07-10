@@ -4,11 +4,7 @@
 </head>
 <body>
   <header>
-    <% if @company %>
-      <h2>All Jobs at <%= @company.name %></h2>
-    <% else %>
-      <h2>All Jobs</h2>
-    <% end %>
+    <h2><%= @heading %></h2>
   </header>
   <% if @company %>
     <%= link_to "Add Job", new_company_job_path(@company), :class => 'button' %>
