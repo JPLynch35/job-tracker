@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <head>
-  <h2><%= @heading %></h2>
+  <%= stylesheet_link_tag "main" %>
 </head>
 <body>
+  <header>
+    <h2><%= @heading %></h2>
+  </header>
   <% if @company %>
-    <p><%= link_to "Add Job", new_company_job_path(@company) %></p>
+    <%= link_to "Add Job", new_company_job_path(@company), :class => 'button' %>
     <% @jobs.each do |job| %>
-      <ul><%= link_to job.title, company_job_path(@company, job) %> - <%= job.city %> - Interest: <%= job.level_of_interest %></ul>
+      <ul class='font'><%= link_to job.title, company_job_path(@company, job) %> - <%= job.city %> - Interest: <%= job.level_of_interest %></ul>
     <% end %>
   <% else %>
-    <p><%= link_to "Add Job", new_job_path %></p>
+    <%= link_to "Add Job", new_job_path, :class => 'button' %>
     <% @jobs.each do |job| %>
-      <ul><%= link_to job.title, job_path(job) %> at <%= job.company.name %> - <%= job.city %> - Interest: <%= job.level_of_interest %></ul>
+      <ul class='font'><%= link_to job.title, job_path(job) %> at <%= job.company.name %> - <%= job.city %> - Interest: <%= job.level_of_interest %></ul>
     <% end %>
   <% end %>
 </body>
