@@ -42,3 +42,41 @@ header {
   display: block;
   font-family: 'Courier New', Courier, monospace;
 }
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  border: 5px solid black;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px;
+  font-family: 'Chela One', cursive;
+}
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px;
+  font-family: 'Chela One', cursive;
+}
+
+#job-tracker {
+  position: absolute;
+  left: 20px;
+  font-size: x-large;
+}
+
+#right-nav-links {
+  display: flex;
+  font-size: x-large;
+}
