@@ -85,8 +85,6 @@ describe "When a user visits /jobs/:id" do
 
     visit job_path(@job_11)
 
-    save_and_open_page
-
     within("#comment_#{@comment_1.id}") do
       click_on('Delete')
     end
