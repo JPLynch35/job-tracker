@@ -21,4 +21,19 @@ describe "A User" do
 
     expect(page).to have_content(Category.find(@category_3.id).title)
   end
+  scenario "can't successfully edit a ctaegory with blank fields'" do
+    visit categories_path
+
+    within(".category_#{@category_3.id}") do
+      click_link "Edit"
+    end
+    
+    expect(current_path).to eq(edit_category_path(@category_3))
+
+    fill_in "category[title]", with: ""
+
+    click_button "Update"
+
+    expect(page).to have_content('Category not updated.')
+  end
 end
