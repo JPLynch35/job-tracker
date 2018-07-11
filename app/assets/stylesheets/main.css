@@ -46,6 +46,24 @@ header {
   font-family: 'Courier New', Courier, monospace;
 }
 
+.dash-box {
+  width: 300px;
+  height: 250px;
+  border: 5px solid black;
+  background-color: tomato;
+  text-align: left;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.inner-text1 {
+  margin-left: 65px;
+}
+
+.inner-text2 {
+  margin-left: 10px;
+}
+
 .nav {
   display: flex;
   justify-content: flex-end;
