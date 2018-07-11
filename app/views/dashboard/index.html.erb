@@ -9,7 +9,7 @@
       <h2><strong>Job Tracker</strong></h2>
     </header>
     <div class = 'dash-box'>
-      <div class ='inner-text1'>
+      <div class ='inner-text1 font'>
         <h3>Jobs by Interest</h3>
         <% @job_interests.each do |key, value| %>
           <p><%= '*'*key %>(<%= value %> jobs)</p>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class = 'dash-box'>
-      <div class ='inner-text2'>
+      <div class ='inner-text2 font'>
         <h3>Top Companies by Interest</h3>
         <% @top_companies.each do |company| %>
           <h5><%= company.name %> (<%= company.avg_interest.round(1) %> stars)</h5>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <% @city_jobs.each do |city, job_count| %>
-      <p><%= link_to "#{city} jobs", "/jobs?location=#{city}" %> (<%= job_count %>)</p>
+      <p class='font'><%= link_to "#{city} jobs", "/jobs?location=#{city}" %> (<%= job_count %>)</p>
     <% end %>
   </div>
 </body>
