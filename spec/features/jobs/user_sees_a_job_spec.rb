@@ -47,6 +47,53 @@ describe "When a user visits /jobs/:id" do
     expect(page).to have_content(@job_11.title)
     expect(page).to have_content(@job_12.title)
   end
+  scenario 'should be able to see comments' do
+    @job_11.comments.create(content: "This is a great job, I really love finance.")
+    @job_11.comments.create(content: "This is a not a great job, I really hate finance.")
+
+    visit job_path(@job_11)
+
+    expect(current_path).to eq(job_path(@job_11))
+    expect(page).to have_content("This is a great job, I really love finance.")
+  end
+  scenario 'should be able to fill in the comments form and save a comment' do
+    @job_11.comments.create(content: "This is a great job, I really love finance.")
+    @job_11.comments.create(content: "This is a not a great job, I really hate finance.")
+
+    visit job_path(@job_11)
+    fill_in "comment[content]", with: "I made a comment right on the page!"
+    click_button "Create Comment"
+
+    expect(current_path).to eq(job_path(@job_11))
+    expect(page).to have_content("I made a comment right on the page!")
+  end
+  scenario 'should show the newest comments on top' do
+    @job_11.comments.create(content: "This is a great job, I really love finance.")
+    @job_11.comments.create(content: "This is a not a great job, I really hate finance.")
+
+    visit job_path(@job_11)
+    fill_in "comment[content]", with: "This is the first comment"
+    click_button "Create Comment"
+    fill_in "comment[content]", with: "This is the second comment"
+    click_button "Create Comment"
+    
+    expect("This is the second comment").to appear_before("This is the first comment")
+  end
+  scenario 'can delete a comment' do
+    @comment_1 = @job_11.comments.create(content: "This is a great job, I really love finance.")
+    @comment_2 = @job_11.comments.create(content: "This is a not a great job, I really hate finance.")
+
+    visit job_path(@job_11)
+
+    save_and_open_page
+
+    within("#comment_#{@comment_1.id}") do
+      click_on('Delete')
+    end
+
+    expect(page).to_not have_content(@comment_1.content)
+    expect(page).to have_content(@comment_2.content)
+  end
 end
 describe 'When a user visits /companies/:id/job:id' do
   before :each do

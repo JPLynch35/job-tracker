@@ -20,7 +20,7 @@
     <h4 class='font'>Existing Contacts</h4>
     <ul class="ul-pad">
       <% @contacts.each do |contact| %>
-        <li>
+        <li id="contact_<%= contact.id %>">
         <%= link_to 'Delete', company_contact_path(@company, contact), method: 'delete', :class => 'button' %>
         <%= contact.name %> <%= contact.role %> <%= contact.email %>
         <br>
