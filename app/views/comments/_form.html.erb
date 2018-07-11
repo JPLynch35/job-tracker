@@ -1,0 +1,9 @@
+<%= form_for [ @job, @comment ], html: {class: "job-form"} do |f| %>
+  <p>
+    <%= f.label :Notes %><br/>
+    <%= f.text_area :content, size: "50x7" %>
+  </p>
+  <p>
+    <%= f.submit :class => "button" %>
+  </p>
+<% end %>

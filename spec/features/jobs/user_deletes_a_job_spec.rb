@@ -1,17 +1,30 @@
 require 'rails_helper'
 
 describe "User deletes existing job" do
+  before :each do
+    @category = Category.create(title: 'Finance')
+    @company_1 = Company.create(name: "ESPN")
+    @job_11 = @company_1.jobs.create(title: "Developer", level_of_interest: 1, city: "Denver", category_id: @category.id)
+    @job_12 = @company_1.jobs.create(title: "QA Analyst", level_of_interest: 4, city: "New York City", category_id: @category.id)
+    @company_2 = Company.create(name: "Apple")
+    @job_21 = @company_2.jobs.create(title: "Manager", level_of_interest: 3, city: "Denver", category_id: @category.id)
+  end
   scenario "a user can delete a job" do
-    company = Company.create(name: "ESPN")
-    job_1 = company.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver")
-    job_2 = company.jobs.create(title: "Jr. Developer", level_of_interest: 50, city: "Denver")
-
-    visit company_job_path(company, job_2)
+    visit job_path(@job_12)
 
     click_link "Delete"
 
-    expect(current_path).to eq ("/companies/#{company.id}/jobs")
-    expect(page).to have_content("#{job_1.title}")
-    expect(page).to have_content("#{job_2.title} was successfully deleted!")
+    expect(current_path).to eq ("/jobs")
+    expect(page).to have_content("#{@job_11.title}")
+    expect(page).to have_content("#{@job_12.title} was successfully deleted!")
+  end
+  scenario "a user can delete a job for a specific company" do
+    visit company_job_path(@company_1, @job_12)
+
+    click_link "Delete"
+
+    expect(current_path).to eq ("/companies/#{@company_1.id}/jobs")
+    expect(page).to have_content("#{@job_11.title}")
+    expect(page).to have_content("#{@job_12.title} was successfully deleted!")
   end
 end

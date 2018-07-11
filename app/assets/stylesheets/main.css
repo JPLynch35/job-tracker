@@ -1,0 +1,104 @@
+body {
+  background-color: bisque;
+}
+
+header {
+  font-family: Franklin Gothic Medium, 'Arial Bold', sans-serif;
+}
+
+.font {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.ul-pad {
+  padding-left: 0;
+}
+
+.centered {
+  text-align: center;
+}
+
+.inline-objects {
+  display: inline-block;
+}
+
+.job-info {
+  font-size: 25;
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.button {
+  display: inline;
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  padding: 5px;
+}
+
+.job-form {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.dash-box {
+  width: 300px;
+  height: 250px;
+  border: 5px solid black;
+  background-color: tomato;
+  text-align: left;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.inner-text1 {
+  margin-left: 65px;
+}
+
+.inner-text2 {
+  margin-left: 10px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  border: 5px solid black;
+  background-color: azure;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px;
+  font-family: 'Chela One', cursive;
+}
+
+.dashboard {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px;
+  font-family: 'Chela One', cursive;
+}
+
+#job-tracker {
+  position: absolute;
+  left: 20px;
+  font-size: x-large;
+}
+
+#right-nav-links {
+  display: flex;
+  font-size: x-large;
+}

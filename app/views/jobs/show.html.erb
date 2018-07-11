@@ -1,18 +1,33 @@
-<%= link_to 'Edit', edit_company_job_path(@job.company, @job) %>
-<%= link_to 'Delete', company_job_path(@job.company), method: 'delete' %>
-<br>
-<br>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag "main" %>
+</head>
+<body>
+  <div class='centered'>
+    <header>
+      <h2><strong><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></strong></h2>
+    </header>
+    <% if !!@flag %>
+        <%= link_to 'Edit', edit_company_job_path(@job.company, @job), :class => 'button' %>
+        <%= link_to 'Delete', company_job_path(@job.company, @job), method: 'delete', :class => 'button' %>
+    <% else %>
+        <%= link_to 'Edit', edit_job_path(@job), :class => 'button' %>
+        <%= link_to 'Delete', job_path(@job), method: 'delete', :class => 'button' %>
+    <% end %>
+    <p class='font'><%= link_to "See Other #{@job.category.title} Positions", "/jobs?category=#{@job.category.title}" %></p>
+    <br>
+    <br>
+    <div class='job-info'>
+      Description: <%= @job.description %>
+      <br>
+      Interest: <%= '*'*@job.level_of_interest %>
+      <br>
+      City: <%= @job.city %>
+    </div>
 
-Title: <%= @job.title %>
-<br>
-
-Description: <%= @job.description %>
-<br>
-
-Level of Interest: <%= @job.level_of_interest %>
-<br>
-
-City: <%= @job.city %>
-<br>
-
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+    <%= render partial: 'comments/form' %>
+    <%= render partial: 'jobs/comment', collection: @job.comments.reverse %>
+  </div>
+</body>
+</html>

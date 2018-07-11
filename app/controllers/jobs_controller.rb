@@ -1,33 +1,62 @@
 class JobsController < ApplicationController
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    @heading = "All Jobs"
+    sort_params = {'location' => :city, 'interest' => :level_of_interest, 'title' => :title}
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @heading += " at #{@company.name}"
+      @jobs = @company.jobs
+    elsif params[:sort]
+      @jobs = Job.order(sort_params[params[:sort]]).includes(:company)
+    elsif params[:location]
+      @heading = "#{params[:location]} Jobs"
+      @jobs = Job.where(city: params[:location])
+    elsif params[:category]
+      @heading = "#{params[:category]} Jobs"
+      category = Category.find_by(title: params[:category])
+      @jobs = Job.where(category_id: category.id)
+    else
+      @jobs = Job.all.includes(:company)
+    end
   end
 
   def new
-    @company = Company.find(params[:company_id])
-    @job = Job.new()
+    if params[:company_id]
+      # @heading = "All of this company's jobs"
+      @company = Company.find(params[:company_id])
+      @job = @company.jobs.new
+      # Job.where(company_id:params[:company_id])
+    else
+      # @heading = "All jobs"
+      @job = Job.new
+    end
   end
 
   def create
-    @company = Company.find(params[:company_id])
-    @job = @company.jobs.new(job_params)
+    @job = Job.new(job_params)
     if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
+      flash[:success] = "You created #{@job.title} at #{@job.company.name}"
+      if params[:company_id]
+        redirect_to company_job_path(@job.company, @job)
+      else
+        redirect_to job_path(@job) # use render?
+      end
     else
+      flash.notice = "Job not created."
       render :new
     end
   end
 
   def show
+    @flag = true if params[:company_id]
     @job = Job.find(params[:id])
+    @comment = Comment.new
+    @comment.job_id = @job.id
   end
 
   def edit
     @job = Job.find(params[:id])
-    @company = @job.company
-
+    @company = @job.company if params[:company_id]
   end
 
   def update
@@ -36,8 +65,13 @@ class JobsController < ApplicationController
     @job.update(job_params)
     if @job.save
       flash[:success] = "#{@job.title} updated!"
-      redirect_to company_job_path(@company, @job)
+      if params[:company_id]
+        redirect_to company_job_path(@company, @job)
+      else
+        redirect_to job_path(@job)
+      end
     else
+      flash.notice = "Job not updated."
       render :edit
     end
   end
@@ -47,12 +81,16 @@ class JobsController < ApplicationController
     job.destroy
 
     flash[:success] = "#{job.title} was successfully deleted!"
-    redirect_to company_jobs_path(job.company)
+    if params[:company_id]
+      redirect_to company_jobs_path(job.company)
+    else
+      redirect_to jobs_path
+    end
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :company_id, :city, :category_id)
   end
 end

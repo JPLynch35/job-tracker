@@ -13,13 +13,16 @@ class CompaniesController < ApplicationController
       flash[:success] = "#{@company.name} added!"
       redirect_to company_path(@company)
     else
+      flash.notice = "Company not created."
       render :new
     end
   end
 
   def show
-    company = Company.find(params[:id])
-    redirect_to company_jobs_path(company)
+    @company = Company.find(params[:id])
+    @contacts = @company.contacts
+    @contact = Contact.new
+    @contact.company_id = @company.id
   end
 
   def edit
@@ -33,6 +36,7 @@ class CompaniesController < ApplicationController
       flash[:success] = "#{@company.name} updated!"
       redirect_to company_path(@company)
     else
+      flash.notice = "Company not updated."
       render :edit
     end
   end
@@ -49,6 +53,6 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :city)
+    params.require(:company).permit(:name)
   end
 end

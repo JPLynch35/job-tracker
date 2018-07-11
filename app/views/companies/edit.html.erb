@@ -1,4 +1,14 @@
-<h2>Edit <%= @company.name %> here!</h2>
-
-<%= render partial: "form" %>
- 
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag "main" %>
+</head>
+<body>
+  <div class='centered'>
+    <header>
+      <h2><strong>Edit <%= @company.name %> here!</strong></h2>
+    </header>
+    <%= render partial: "form" %>
+  </div>
+</body>
+</html>

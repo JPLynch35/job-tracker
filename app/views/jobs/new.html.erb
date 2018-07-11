@@ -1,3 +1,18 @@
-<h2>Create a new job at <%= @company.name %> here!</h2>
-
-<%= render partial: "form" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag "main" %>
+</head>
+<body>
+  <div class='centered'>
+    <header>
+      <% if @company %>
+        <h2><strong>Create a new <%= @company.name %> job here!</strong></h2>
+      <% else %>
+        <h2><strong>Create a new job here!</strong></h2>
+      <% end %>
+    </header>
+    <%= render partial: "form" %>
+  </div>
+</body>
+</html>
