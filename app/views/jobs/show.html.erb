@@ -15,7 +15,7 @@
         <%= link_to 'Edit', edit_job_path(@job), :class => 'button' %>
         <%= link_to 'Delete', job_path(@job), method: 'delete', :class => 'button' %>
     <% end %>
-    <p class='font'><%= link_to "See Other #{@job.title} Positions", companies_path %></p>
+    <p class='font'><%= link_to "See Other #{@job.category.title} Positions", "/jobs?category=#{@job.category.title}" %></p>
     <br>
     <br>
     <div class='job-info'>

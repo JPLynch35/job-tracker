@@ -39,12 +39,13 @@ describe "When a user visits /jobs/:id" do
 
     expect(current_path).to eq(company_path(@job_21.company))
   end
-  scenario "a user can click on the link to see other same category jobs" do
+  scenario "a user can click on the link to see other jobs with the same category" do
     visit job_path(@job_21)
 
-    click_on "#{@job_21.company.name}"
+    click_on "See Other #{@job_21.category.title} Positions"
 
-    expect(current_path).to eq(company_path(@job_21.company))
+    expect(page).to have_content(@job_11.title)
+    expect(page).to have_content(@job_12.title)
   end
 end
 describe 'When a user visits /companies/:id/job:id' do
@@ -58,11 +59,18 @@ describe 'When a user visits /companies/:id/job:id' do
   end
   scenario "a user sees a job for a specific company" do
     visit company_path(@company_1)
-    click_link 'Jobs'
+    click_link "See Other Jobs at #{@company_1.name}"
     click_link "#{@job_11.title}"
-    expect(current_path).to eq("/jobs/#{@job_11.id}")
 
+    expect(current_path).to eq(company_job_path(@company_1, @job_11))
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
+  end
+  scenario "a user deleting a job from a company/job url will be directed back to the company jobs page" do
+    visit company_job_path(@company_1, @job_11)
+    click_link "Delete"
+
+    expect(current_path).to eq(company_jobs_path(@company_1))
+    expect(page).to have_content("#{@job_11.title} was successfully deleted!")
   end
 end

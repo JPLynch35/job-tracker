@@ -40,6 +40,24 @@ describe "User sees all jobs" do
 
     expect(current_path).to eq(job_path(@job_11))
   end
+  scenario "a user can delete a job" do
+    visit jobs_path
+
+    within("#job_#{@job_11.id}") do
+      click_on 'Delete'
+    end
+
+    expect(page).to_not have_content("#{@job_11.title} at #{@job_11.company.name}")
+  end
+  scenario "a user can edit a job" do
+    visit jobs_path
+
+    within("#job_#{@job_11.id}") do
+      click_on 'Edit'
+    end
+
+    expect(current_path).to eq(edit_job_path(@job_11))
+  end
   scenario "a user sees all the jobs for a specific company" do
     visit company_jobs_path(@company_1)
 
@@ -47,5 +65,4 @@ describe "User sees all jobs" do
     expect(page).to have_content("Developer")
     expect(page).to have_content("QA Analyst")
   end
-  
 end
