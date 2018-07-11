@@ -44,6 +44,7 @@ group :development, :test do
   gem 'orderly'
   gem 'shoulda-matchers'
   gem 'tux'
+  gem 'orderly'
 end
 
 group :development do
