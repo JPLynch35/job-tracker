@@ -6,6 +6,15 @@ header {
   font-family: Franklin Gothic Medium, 'Arial Bold', sans-serif;
 }
 
+footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 5px solid;
+  background-color: azure;
+  height: 40px;
+}
+
 .font {
   font-family: 'Courier New', Courier, monospace;
 }
@@ -90,6 +99,14 @@ header {
   align-items: center;
   padding: 8px 4px;
   font-family: 'Chela One', cursive;
+}
+
+#back {
+  position: absolute;
+  left: 20px;
+  font-family: 'Chela One', cursive;
+  font-size: large;
+  font-weight: 800;
 }
 
 #job-tracker {

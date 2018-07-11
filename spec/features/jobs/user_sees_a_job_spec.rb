@@ -106,7 +106,7 @@ describe 'When a user visits /companies/:id/job:id' do
   end
   scenario "a user sees a job for a specific company" do
     visit company_path(@company_1)
-    click_link "See Other Jobs at #{@company_1.name}"
+    click_link "See Jobs at #{@company_1.name}"
     click_link "#{@job_11.title}"
 
     expect(current_path).to eq(company_job_path(@company_1, @job_11))
