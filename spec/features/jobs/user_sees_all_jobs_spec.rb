@@ -4,10 +4,10 @@ describe "User sees all jobs" do
   before :each do
     @category = Category.create(title: 'Finance')
     @company_1 = Company.create(name: "ESPN")
-    @company_1.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver", category_id: @category.id)
-    @company_1.jobs.create(title: "QA Analyst", level_of_interest: 70, city: "New York City", category_id: @category.id)
+    @job_11 = @company_1.jobs.create(title: "Developer", level_of_interest: 2, city: "Denver", category_id: @category.id)
+    @job_12 = @company_1.jobs.create(title: "QA Analyst", level_of_interest: 1, city: "New York City", category_id: @category.id)
     @company_2 = Company.create(name: "Apple")
-    @company_2.jobs.create(title: "Manager", level_of_interest: 70, city: "Denver", category_id: @category.id)
+    @job_21 = @company_2.jobs.create(title: "Manager", level_of_interest: 5, city: "Denver", category_id: @category.id)
   end
   scenario "a user sees all jobs" do
     visit jobs_path
@@ -15,6 +15,8 @@ describe "User sees all jobs" do
     expect(page).to have_content("Developer")
     expect(page).to have_content("QA Analyst")
     expect(page).to have_content("Manager")
+    expect(page).to have_content("#{@job_11.title} at #{@company_1.name} - #{@job_11.city}")
+
   end
   scenario "a user sees all the jobs for a specific company" do
     visit company_jobs_path(@company_1)
@@ -23,4 +25,5 @@ describe "User sees all jobs" do
     expect(page).to have_content("Developer")
     expect(page).to have_content("QA Analyst")
   end
+  
 end

@@ -4,10 +4,10 @@ describe "User deletes existing job" do
   before :each do
     @category = Category.create(title: 'Finance')
     @company_1 = Company.create(name: "ESPN")
-    @job_11 = @company_1.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver", category_id: @category.id)
-    @job_12 = @company_1.jobs.create(title: "QA Analyst", level_of_interest: 70, city: "New York City", category_id: @category.id)
+    @job_11 = @company_1.jobs.create(title: "Developer", level_of_interest: 1, city: "Denver", category_id: @category.id)
+    @job_12 = @company_1.jobs.create(title: "QA Analyst", level_of_interest: 4, city: "New York City", category_id: @category.id)
     @company_2 = Company.create(name: "Apple")
-    @job_21 = @company_2.jobs.create(title: "Manager", level_of_interest: 70, city: "Denver", category_id: @category.id)
+    @job_21 = @company_2.jobs.create(title: "Manager", level_of_interest: 3, city: "Denver", category_id: @category.id)
   end
   scenario "a user can delete a job" do
     visit job_path(@job_12)

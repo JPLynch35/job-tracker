@@ -4,7 +4,7 @@ describe "User edits an existing company" do
   before :each do
     @company_1 = Company.create(name: "ESPN")
     @company_2 = Company.create(name: "Disney")
-    @company_1.jobs.create(title: "Developer", level_of_interest: 90, city: "Denver")
+    @company_1.jobs.create(title: "Developer", level_of_interest: 3, city: "Denver")
   end
   scenario "a user can edit a company" do
     visit companies_path
