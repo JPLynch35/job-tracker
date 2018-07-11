@@ -27,6 +27,18 @@ describe 'a user visits /dashboard' do
       end
 
       expect(current_path).to eq(categories_path)
+
+      within '.nav' do
+        click_on 'Dashboard'
+      end
+
+      expect(current_path).to eq(dashboard_index_path)
+
+      within 'footer' do
+        click_on '<< Go Back'
+      end
+
+      expect(current_path).to eq(categories_path)
     end
   end
 end
