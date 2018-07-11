@@ -12,7 +12,7 @@ describe "User creates a new job" do
 
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
-    fill_in "job[level_of_interest]", with: 80
+    select "4", from: "job[level_of_interest]"
     select 'ESPN', from: "Company"
     select "Finance", from: "Category"
     fill_in "job[city]", with: "Denver"
@@ -22,7 +22,6 @@ describe "User creates a new job" do
     expect(current_path).to eq("/jobs/#{Job.last.id}")
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
-    expect(page).to have_content("80")
     expect(page).to have_content("Denver")
   end
   scenario "a user can create a new job from a company" do
@@ -32,7 +31,7 @@ describe "User creates a new job" do
 
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
-    fill_in "job[level_of_interest]", with: 80
+    select "4", from: "job[level_of_interest]"
     fill_in "job[city]", with: "Denver"
     select "Finance", from: "Category"
 
@@ -41,7 +40,6 @@ describe "User creates a new job" do
     expect(current_path).to eq("/companies/#{@company.id}/jobs/#{Job.last.id}")
     expect(page).to have_content("ESPN")
     expect(page).to have_content("Developer")
-    expect(page).to have_content("80")
     expect(page).to have_content("Denver")
   end
   scenario "a user can't create a new job without the required fields" do
@@ -49,12 +47,12 @@ describe "User creates a new job" do
     click_link "Add Job"
 
     fill_in "job[description]", with: "So fun!"
-    fill_in "job[level_of_interest]", with: 80
+    select "4", from: "job[level_of_interest]"
     fill_in "job[city]", with: "Denver"
 
     click_button "Create"
 
-    expect(page).to have_content("Create a new #{@company.name} job here!")
+    expect(page).to have_content("Create a new job here!")
   end
   scenario "a user is directed to /categories/new from /jobs/new" do
     visit new_job_path

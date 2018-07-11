@@ -3,7 +3,7 @@ describe 'a visitor' do
     it 'should be able to see comments' do
       @category = Category.create(title: 'Finance')
       @company = Company.create(name: "ESPN")
-      @job = @company.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver", category_id: @category.id)
+      @job = @company.jobs.create(title: "Developer", level_of_interest: 4, city: "Denver", category_id: @category.id)
       @job.comments.create(content: "This is a great job, I really love finance.")
 
       visit job_path(@job)
@@ -14,7 +14,7 @@ describe 'a visitor' do
     it 'should be able to fill in the comments form and save a comment' do
       @category = Category.create(title: 'Finance')
       @company = Company.create(name: "ESPN")
-      @job = @company.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver", category_id: @category.id)
+      @job = @company.jobs.create(title: "Developer", level_of_interest: 4, city: "Denver", category_id: @category.id)
 
       visit job_path(@job)
       fill_in "comment[content]", with: "I made a comment right on the page!"
@@ -26,7 +26,7 @@ describe 'a visitor' do
     it 'should show the newest comments on top' do
       @category = Category.create(title: 'Finance')
       @company = Company.create(name: "ESPN")
-      @job = @company.jobs.create(title: "Developer", level_of_interest: 70, city: "Denver", category_id: @category.id)
+      @job = @company.jobs.create(title: "Developer", level_of_interest: 3, city: "Denver", category_id: @category.id)
 
       visit job_path(@job)
       fill_in "comment[content]", with: "This is the first comment"
