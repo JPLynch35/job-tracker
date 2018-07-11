@@ -1,20 +1,20 @@
 class JobsController < ApplicationController
   def index
     @heading = "All Jobs"
-    sort_params = {'location' => :city, 'interest' => :level_of_interest, 'title' => :title}
+    sort_params = {'location' => :city, 'interest' => "level_of_interest desc", 'title' => :title}
     if params[:company_id]
       @company = Company.find(params[:company_id])
-      @heading += " at #{@company.name}"
       @jobs = @company.jobs
+      @heading += " at #{@company.name}"
     elsif params[:sort]
-      @jobs = Job.order(sort_params[params[:sort]]).includes(:company)
+      @jobs = Job.includes(:company).sort_by_param(sort_params[params[:sort]])
     elsif params[:location]
+      @jobs = Job.by_city(city: params[:location])
       @heading = "#{params[:location]} Jobs"
-      @jobs = Job.where(city: params[:location])
     elsif params[:category]
-      @heading = "#{params[:category]} Jobs"
       category = Category.find_by(title: params[:category])
-      @jobs = Job.where(category_id: category.id)
+      @jobs = Job.by_category(category_id: category.id)
+      @heading = "#{params[:category]} Jobs"
     else
       @jobs = Job.all.includes(:company)
     end
@@ -22,12 +22,9 @@ class JobsController < ApplicationController
 
   def new
     if params[:company_id]
-      # @heading = "All of this company's jobs"
       @company = Company.find(params[:company_id])
       @job = @company.jobs.new
-      # Job.where(company_id:params[:company_id])
     else
-      # @heading = "All jobs"
       @job = Job.new
     end
   end
@@ -39,7 +36,7 @@ class JobsController < ApplicationController
       if params[:company_id]
         redirect_to company_job_path(@job.company, @job)
       else
-        redirect_to job_path(@job) # use render?
+        redirect_to job_path(@job)
       end
     else
       flash.notice = "Job not created."
@@ -49,7 +46,7 @@ class JobsController < ApplicationController
 
   def show
     @flag = true if params[:company_id]
-    @job = Job.find(params[:id])
+    @job = Job.includes(:company).find(params[:id])
     @comment = Comment.new
     @comment.job_id = @job.id
   end

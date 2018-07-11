@@ -17,22 +17,6 @@ describe "User sees all jobs" do
     expect(page).to have_content("Manager")
     expect(page).to have_content("#{@job_11.title} at #{@company_1.name} - #{@job_11.city}")
   end
-  scenario "a user clicks on sort by location and sees the sort" do
-    visit jobs_path
-
-    click_on "Sort all jobs by location"
-
-    expect(@job_11.title).to appear_before(@job_21.title)
-    expect(@job_21.title).to appear_before(@job_12.title)
-  end
-  scenario "a user clicks on sort by interest and sees the sort" do
-    visit jobs_path
-
-    click_on "Sort all jobs by interest"
-
-    expect(@job_12.title).to appear_before(@job_11.title)
-    expect(@job_11.title).to appear_before(@job_21.title)
-  end
   scenario "a user clicks on a job title and sees the job show page" do
     visit jobs_path
 

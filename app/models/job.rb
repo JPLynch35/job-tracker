@@ -11,4 +11,16 @@ class Job < ApplicationRecord
   def self.jobs_by_city
     group(:city).order('city').count
   end
-end 
+
+  def self.sort_by_param(param)
+    order(param)
+  end
+
+  def self.by_city(param)
+    where(param)
+  end
+
+  def self.by_category(param)
+    where(param)
+  end
+end

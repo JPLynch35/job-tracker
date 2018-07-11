@@ -11,20 +11,22 @@ describe "A User" do
     @job_21 = @company_2.jobs.create(title: "Manager", level_of_interest: 2, city: "Denver", category_id: @category_1.id)
     @job_22 = @company_2.jobs.create(title: "Thug", level_of_interest: 1, city: "Orlando", category_id: @category_1.id)
   end
-  scenario "sees all jobs sorted by City" do
-    visit "/jobs?sort=location"
+  scenario "a user clicks on sort by location and sees the sort" do
+    visit jobs_path
 
+    click_on "Sort all jobs by location"
 
     expect(@job_11.title).to appear_before(@job_12.title)
     expect(@job_21.title).to appear_before(@job_12.title)
     expect(@job_12.title).to appear_before(@job_22.title)
   end
-  scenario "sees all jobs sorted by level_of_interest" do
-    visit "/jobs?sort=interest"
+  scenario "a user clicks on sort by interest and sees the sort" do
+    visit jobs_path
 
+    click_on "Sort all jobs by interest"
 
-    expect(@job_22.title).to appear_before(@job_21.title)
-    expect(@job_22.title).to appear_before(@job_12.title)
-    expect(@job_21.title).to appear_before(@job_11.title)
+    expect(@job_21.title).to appear_before(@job_22.title)
+    expect(@job_12.title).to appear_before(@job_22.title)
+    expect(@job_11.title).to appear_before(@job_21.title)
   end
 end
