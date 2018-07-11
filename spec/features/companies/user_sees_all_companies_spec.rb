@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "User sees all companies" do
   before :each do
-    @company_1 = Company.create(id: 1, name: "ESPN")
+    @company_1 = Company.create(name: "ESPN")
     @company_2 = Company.create(name: "Disney")
     @company_1.jobs.create(title: "Developer", level_of_interest: 4, city: "Denver")
   end

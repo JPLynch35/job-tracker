@@ -74,9 +74,22 @@ describe "User sees one company" do
   scenario "clicks Delete from company/:id and gets to /companies" do
     visit company_path(@company_1)
 
-    click_on "Delete"
+    within('#company-buttons') do
+      click_on("Delete")
+    end
 
     expect(current_path).to eq(companies_path)
     expect(page).to have_content("#{@company_1.name} was successfully deleted!")
+  end
+  scenario "can delete individual contacts" do
+    visit company_path(@company_1)
+
+    expect(page).to have_content(@contact_1.name)
+
+    within("#contact_#{@contact_1.id}") do
+      click_on("Delete")
+    end
+
+    expect(page).to have_content("#{@contact_1.name} was successfully deleted!")
   end
 end

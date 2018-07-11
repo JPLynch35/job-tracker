@@ -8,8 +8,10 @@
     <header>
       <h2><strong><%= @company.name %></strong></h2>
     </header>
-    <%= link_to 'Edit', edit_company_path(@company), :class => 'button' %>
-    <%= link_to 'Delete', company_path(@company), method: 'delete', :class => 'button' %>
+    <div id='company-buttons'>
+      <%= link_to 'Edit', edit_company_path(@company), :class => 'button' %>
+      <%= link_to 'Delete', company_path(@company), method: 'delete', :class => 'button' %>
+    </div>
     <p class='font'><%= link_to "See Jobs at #{@company.name}", company_jobs_path(@company) %></p>
     <br>
     <br>
@@ -18,7 +20,12 @@
     <h4 class='font'>Existing Contacts</h4>
     <ul class="ul-pad">
       <% @contacts.each do |contact| %>
-        <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
+        <li id="contact_<%= contact.id %>">
+        <%= link_to 'Delete', company_contact_path(@company, contact), method: 'delete', :class => 'button' %>
+        <%= contact.name %> <%= contact.role %> <%= contact.email %>
+        <br>
+        <br>
+        </li>
       <% end %>
     </ul>
   </div>

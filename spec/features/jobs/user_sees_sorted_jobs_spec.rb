@@ -29,4 +29,10 @@ describe "A User" do
     expect(@job_12.title).to appear_before(@job_22.title)
     expect(@job_11.title).to appear_before(@job_21.title)
   end
+  scenario "sees all jobs only in a specific city" do
+    visit "/jobs?location=Denver"
+
+    expect(page).to have_content(@job_11.title)
+    expect(page).to have_content(@job_21.title)
+  end
 end
