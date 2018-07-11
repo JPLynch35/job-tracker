@@ -29,7 +29,7 @@ describe "User sees one company" do
     expect(page).to have_content(@contact_1.name)
     expect(page).to have_content(@contact_2.email)
   end
-  scenario "a fills in contact form and sees contacts" do
+  scenario "fills in contact form and sees contacts" do
     visit company_path(@company_1)
 
     contact_name = "Bart Simpson"
@@ -47,7 +47,7 @@ describe "User sees one company" do
     expect(page).to have_content(contact_role)
     expect(page).to have_content(contact_email)
   end
-  scenario "a fills in incomplete contact form and doesn't see contact" do
+  scenario "fills in incomplete contact form and doesn't see contact" do
     visit company_path(@company_1)
 
     contact_name = nil
@@ -63,5 +63,20 @@ describe "User sees one company" do
     expect(current_path).to eq(company_path(@company_1))
     expect(page).to_not have_content(contact_role)
     expect(page).to_not have_content(contact_email)
+  end
+  scenario "clicks Edit from company/:id and gets to company/:id/edit" do
+    visit company_path(@company_1)
+
+    click_on "Edit"
+
+    expect(current_path).to eq(edit_company_path(@company_1))
+  end
+  scenario "clicks Delete from company/:id and gets to /companies" do
+    visit company_path(@company_1)
+
+    click_on "Delete"
+
+    expect(current_path).to eq(companies_path)
+    expect(page).to have_content("#{@company_1.name} was successfully deleted!")
   end
 end
