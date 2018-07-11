@@ -1,6 +1,7 @@
-<%= form_for @category do |f| %>
+<%= form_for @category, html: {class: "job-form"} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.submit %>
+  <%= link_to 'Cancel', :back, :class => 'button' %>
+  <%= f.submit :class => 'button' %>
 <% end %>

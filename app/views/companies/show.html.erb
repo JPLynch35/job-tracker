@@ -15,7 +15,7 @@
     <br>
     <%= render partial: "contacts/form" %><br><br>
     <h4 class='font'>Existing Contacts</h4>
-    <ul>
+    <ul class="ul-pad">
       <% @contacts.each do |contact| %>
         <li> <%= contact.name %> <%= contact.role %> <%= contact.email %></li>
       <% end %>

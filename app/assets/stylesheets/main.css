@@ -43,7 +43,6 @@ header {
 }
 
 .job-form {
-  display: block;
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -52,6 +51,7 @@ header {
   justify-content: flex-end;
   align-content: center;
   border: 5px solid black;
+  background-color: azure;
 }
 
 .nav-links {

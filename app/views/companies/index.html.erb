@@ -8,7 +8,7 @@
   </header>
   <p><%= link_to "Add Company", new_company_path, :class => 'button' %></p>
     <% @companies.each do |company| %>
-    <ul class="font ul-pad company_<%= company.id %>"">
+    <ul class="font ul-pad company_<%= company.id %>">
       <%= link_to "Edit", edit_company_path(company), :class => 'button' %>
       <%= link_to "Delete", company_path(company), method: "delete", :class => 'button' %>
       <%= link_to company.name, company_path(company) %>

@@ -4,17 +4,22 @@
 </head>
 <body>
   <header>
+    <br>
+    <div class="centered">
+      <%= link_to "Sort all jobs by location", '/jobs/?sort=location', :class => 'button' %>
+      <%= link_to "Sort all jobs by interest", '/jobs/?sort=interest', :class => 'button' %>
+    </div>
     <h2><strong><%= @heading %></strong></h2>
   </header>
   <% if @company %>
     <%= link_to "Add Job", new_company_job_path(@company), :class => 'button' %>
     <% @jobs.each do |job| %>
-      <ul class='font ul-pad'><%= link_to job.title, company_job_path(@company, job) %> - <%= job.city %> - Interest: <%= job.level_of_interest %></ul>
+      <ul class='font ul-pad'><%= link_to job.title, company_job_path(@company, job) %> - <%= job.city %>  <%= '*'*job.level_of_interest %></ul>
     <% end %>
   <% else %>
     <%= link_to "Add Job", new_job_path, :class => 'button' %>
     <% @jobs.each do |job| %>
-      <ul class='font ul-pad'><%= link_to job.title, job_path(job) %> at <%= job.company.name %> - <%= job.city %> - Interest: <%= job.level_of_interest %></ul>
+      <ul class='font ul-pad'><%= link_to job.title, job_path(job) %> at <%= job.company.name %> - <%= job.city %>  <%= '*'*job.level_of_interest %></ul>
     <% end %>
   <% end %>
 </body>
